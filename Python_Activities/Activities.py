@@ -348,6 +348,7 @@ with open("info.txt","w") as file:
 with open("info.txt","r") as file:
     contents = file.read()
     print(f"Content of info.txt:{contents}")
+
 with open("info.txt","a") as file:
     file.write("\nLoves sleeping")
 
