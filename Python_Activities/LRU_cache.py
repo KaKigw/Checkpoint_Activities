@@ -56,15 +56,16 @@ class LRUCache:
         self.cap = capacity
         self.cache = {} # Map key to node
 
-        #Head=LRU, tail=recent node
+        #HEAD ⇄ (LRU) ... (MRU) ⇄ TAIL
         self.head, self.tail = Node(0,0), Node(0,0)
         self.tail.prev, self.head.next = self.head, self.tail
         
-
+    #remove from the list
     def remove(self,node):
         prev, next = node.prev, node.next
         prev.next, next.prev = next, prev
 
+    #Insert on the tail of the list
     def insert(self,node):
         prev, next = self.tail.prev, self.tail
         next.prev = prev.next = node 
